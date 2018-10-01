@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="appLancamentosGlobal">
+<head>
+<meta charset="UTF-8" />
+<script src="./lib/angular.js" type="text/javascript"></script>
+<script src="./js/app.js" type="text/javascript"></script>
+<script src="./js/empresajs/empresa-controller.js"
+	type="text/javascript"></script>
+<link href="styles/bootstrap.css" type="text/css" rel="stylesheet"></link>
+
+<style>
+.table table-striped {
+	margin: 0px 0px 0px 0px;
+}
+
+.form-control{
+   width: 200px;
+   /*margin-left: 10px;*/
+   margin: 10px;
+}
+</style>
+
+</head>
+<body ng-controller="empresaController">
+	<h3>Empresa</h3>
+	<div>
+		<button style="margin-left: 10px;" class="btn btn-primary" type="button">Novo</button>
+	</div>
+
+	<div>
+	   <input class="form-control" type="text" ng-model="pesqNomeCnpj" placeholder="pesquisar">
+	</div>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th scpope="col">nome</th>
+				<th scpope="col">cnpj</th>
+				<th scpope="col">nome responsável</th>
+				<th scpope="col">contato</th>
+				<th scpope="col">ação</th>
+			<tr>
+		</thead>
+		<tr ng-repeat="empresa in empresas | filter:pesqNomeCnpj">
+			<td>{{ empresa.nome }}</td>
+			<td>{{ empresa.cnpj }}</td>
+			<td>{{ empresa.nomeResponsavel }}</td>
+			<td>{{ empresa.contato }}</td>
+			<td><input type="button" value="excluir"
+				ng-click="excluirEmpresa(empresa)" /></td>
+		</tr>
+	</table>
+</body>
+</html>

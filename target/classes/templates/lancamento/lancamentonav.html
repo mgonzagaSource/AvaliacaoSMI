@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="appLancamentosGlobal">
+<head>
+<meta charset="UTF-8" />
+<script src="./lib/angular.js" type="text/javascript"></script>
+<script src="./js/app.js" type="text/javascript"></script>
+<script src="./js/lancamentojs/lancamento-controller.js"
+	type="text/javascript"></script>
+<link href="styles/bootstrap.css" type="text/css" rel="stylesheet"></link>
+</head>
+<body ng-controller="lancamentoController">
+	<h3>Lancamento</h3>
+	<div>
+		<button type="button">Novo</button>
+	</div>
+	<div>
+		data inicial <input type="text"> data final <input type="text">
+		<button type="button">pesquisar</button>
+	</div>
+	<table class="table table-striped">
+		<thead>
+			<th scope="col">nome</th>
+			<th scope="col">descricao</th>
+			<th scope="col">tipo</th>
+			<th scope="col">vencimento</th>
+			<th scope="col">valor</th>
+			<th scope="col">ação</th>
+		</thead>
+		<tr ng-repeat="lancamento in lancamentos">
+			<td>{{ lancamento.empresa.nome }}</td>
+			<td>{{ lancamento.categoria.descricao }}</td>
+			<td>{{ lancamento.tipo }}</td>
+			<td>{{ lancamento.vencimento  | date: 'dd/MM/yyyy' }}</td>
+			<td>{{ lancamento.valor | number:2 }}</td>
+			<td><input type="button" value="excluir"
+				ng-click="excluirLancamento(lancamento)" /></td>
+			<!-- <td><input type="button" value="alterar"/></td> -->
+		</tr>
+	</table>
+	<div> <strong><span style="margin-left: 69%;">Saldo R$ {{ saldo }}</span></strong> </div>
+</body>
+</html>

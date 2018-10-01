@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <style>
+  .nav-item{
+  width: 12%;
+  float: left;
+  margin-left:30px;
+  }
+  </style>
+<meta charset="UTF-8" />
+<link href="styles/bootstrap.css" type="text/css" rel="stylesheet">
+</head>
+  <body>
+  <h1 style="align:center;margin-left: 350px;">Sistema de gestão de lançamentos</h1>
+  <div><h3 style="margin:10px">Home</div>
+    <header>
+      <ul class="nav">
+        <li class="nav-item"><a class="navlink" href="#">empresa</a></li>
+        <li class="nav-item"><a class="navlink" href="#">categoria</a></li>
+        <li class="nav-item"><a class="navlink" href="#">lançamento</a></li>
+        
+        <!-- ===========AKI QUE GERA O PROBLEMA DE PARSE NOS LINKS =========================== -->
+        <!-- <li><a th:href="${(#mvc.url('HC#chamarEmpresas')"></a>empresas<li>  .arg(0,empresas)).build()}"> <span th:text="empresa"></span></a><li> -->    
+        <!--   <li><a th:href="${(#mvc.url('HC#chamarCategorias').arg(0,categorias)).build()}"> <span th:text="categoria"></span></a><li>
+        <li><a th:href="${(#mvc.url('HC#chamarLancamentos').arg(0,lancamentos)).build()}"> <span th:text="lançamento"></span></a><li> -->
+      </ul>
+    </header>
+  </body>
+</html>

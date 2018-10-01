@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html ng-app="appLancamentosGlobal">
+<head>
+<meta charset="UTF-8" />
+<script src="./lib/angular.js" type="text/javascript"></script>
+<script src="./js/app.js" type="text/javascript"></script>
+<script src="./js/empresajs/empresa-controller.js"
+	type="text/javascript"></script>
+<script type="text/javascript" src="./js/util.js"></script>	
+<link href="styles/bootstrap.css" type="text/css" rel="stylesheet">
+</link>
+
+<style type="text/css">
+.form-group {
+	margin: 11px 20px 0px 50px;
+}
+
+.btn-primary {
+	margin: 20px 0px 0px 48px;
+	width: 95%;
+	height: 40px;
+}
+
+.alert-danger {
+	margin: 13px 0px 0px 50px;
+	width: 15%;
+}
+</style>
+</head>
+<body ng-controller="empresaController">
+	<div>
+		<h3 style="margin-left:41%;">Cadastro de Empresa</h3>
+	</div>
+	<form class="form-group" action="" name="empresaForm">
+		<div>
+			<label>Nome:</label> <input class="form-control" type="text"
+				ng-model="empresa.nome" name="nome" ng-required="true" />
+		</div>
+		<div>
+			<label>CNPJ:</label> <input id="txtcnpj" class="form-control" type="text"
+				ng-model="empresa.cnpj" name="cnpj" ng-required="true"
+				maxlength="18" onkeypress="return mascaraCnpj(event)" ng-minlength="18" />
+		</div>
+		<div>
+			<label>Nome Responsável:</label> <input class="form-control"
+				type="text" ng-model="empresa.nomeResponsavel" />
+		</div>
+		<div>
+			<label>contato:</label> <input class="form-control" type="text"
+				ng-model="empresa.contato" />
+		</div>
+	</form>
+	<div class="alert alert-danger"
+		ng-show="empresaForm.nome.$invalid && empresaForm.nome.$dirty">
+		favor preencher o nome</div>
+	<div class="alert alert-danger" role="alert"
+		ng-show="empresaForm.cnpj.$invalid && empresaForm.cnpj.$dirty">
+		favor preencher o cnpf</div>
+	<div>
+		<button class="btn btn-primary" type="button"
+			ng-click="salvarEmpresa()" ng-disabled=empresaForm.$invalid>Salvar</button>
+	</div>
+</body>
+</html>
